@@ -20,14 +20,9 @@ type DateFetch = {
 
 export const fetchNews = async (url: string) => {
     const data: DateFetch = await ((await fetch(url)).json())
- 
-    // return data.articles.map((article: Artciles) => ({
-    //     ...article,
-    //     results:data.totalResults
-    // }));
     let array:any[] = []
-    data.articles.map((article: Artciles) =>{
-            array.push(article);
+    data.articles.map((article: Artciles) => {
+        array.push(article)
     })
 
     return [data.totalResults , ...array]
